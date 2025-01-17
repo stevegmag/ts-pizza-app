@@ -5,7 +5,7 @@ type: post
 date: '2025-01-14'
 lastmod: '2025-01-14'
 draft: true
-slug: /stevegmag-dev-lvl-up-ts-finance-logger
+slug: /stevegmag-dev-lvl-up-ts-pizza-app
 description: Basic development notes file for leveling up - stevegmag
 tags:
   - 
@@ -33,6 +33,6 @@ tutorialList:
   - [Learn TypeScript - Full Course for Beginners (FreeCodeCamp): ](https://www.youtube.com/watch?v=SpwzRDUQ1GI)
 
 ## TODOS: (maybe)
-  - [] get project set up
+  - [X] get project set up
   - [] finish tutorial
   

@@ -1,5 +1,5 @@
 ---
-title: "#stevegmag: dev level up: stevegmag"
+title: "#stevegmag: dev level up: ts-pizza-app"
 author: steven gallagher - stevegmag
 type: post
 date: '2025-01-14'
@@ -34,5 +34,5 @@ tutorialList:
 
 ## TODOS: (maybe)
   - [X] get project set up
-  - [] finish tutorial
+  - [X] finish tutorial
   

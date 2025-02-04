@@ -19,24 +19,29 @@ const menu: Pizza[] = [
 
 let cashInRegister: number = 100;
 let nextOrder: number = 1;
+let nextPizzaId: number = menu.length + 1;
 const orderQueue: Order[] = [];
 
-function getPizzaDetail(identifier: number | string) {
+function getPizzaDetail(identifier: number | string): Pizza | undefined {
   const pizza = menu.find(pizza => pizza.id === identifier || pizza.name === identifier);
   if (!pizza) {
     console.log(`Pizza with id or name ${identifier} not found`);
-    return;
+    return; // undefined
   }
   return pizza;
 } 
-function addNewPizza(pizzaObj: Pizza) {
-  menu.push(pizzaObj);
+
+function addNewPizza(pizzaObj: Omit<Pizza, 'id'>): Pizza {
+  const newPizza: Pizza = {id: nextPizzaId++, ...pizzaObj};
+  menu.push(newPizza);
+  return newPizza;
 }
-function placeOrder(pizzaName: string) {
+
+function placeOrder(pizzaName: string): Order | undefined {
   const selectedPizza = menu.find(pizza => pizza.name === pizzaName);
   if (!selectedPizza) {
     console.log( `Sorry, we don't have ${pizzaName}`);
-    return;
+    return; // undefined
   }
   cashInRegister += selectedPizza.price;
   const newOrder: Order = { id: nextOrder++, pizza: selectedPizza, status: 'ordered' };
@@ -44,11 +49,11 @@ function placeOrder(pizzaName: string) {
   return newOrder; 
 }
 
-function completeOrder(orderId: number) {
+function completeOrder(orderId: number): Order | undefined {
   const order = orderQueue.find(order => order.id === orderId);
   if (!order) {
     console.log(`Order ${orderId} not found`);
-    return;
+    return; // undefined
   }
   // TODO: Move addition to cashInRegister to a function and call it here
   order.status = 'completed';
@@ -58,8 +63,8 @@ function completeOrder(orderId: number) {
 //TODO: Add a function to allow the order to be marked as 'in progress'
 
 // add new pizzas
-addNewPizza({id: 5, name: 'cheese', price: 10});
-addNewPizza({id: 6, name: 'chicken bacon ranceh', price: 12});
+addNewPizza({name: 'cheese', price: 10});
+addNewPizza({name: 'chicken bacon ranch', price: 12});
 
 placeOrder('pepperoni');
 completeOrder(1);

@@ -27,6 +27,7 @@ tutorialList:
  - use `tsc` to compile or `tsc -w` (watch)
  - setup tsconfig `tsc --init`
  - using LIVE SERVER extention to run simple page server
+  -- right click on the index file and run in Live Server (via VS Code)
 
 
 ## Tutorial List:
